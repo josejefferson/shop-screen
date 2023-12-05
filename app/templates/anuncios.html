@@ -15,7 +15,7 @@
   </div>
   <div class="carousel-inner">
     {% for anuncio in anuncios %}
-    <div class="carousel-item {% if forloop.counter == 0 %}active{% endif %}">
+    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
       <img src="/{{ anuncio.imagem }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>{{ anuncio.nome }}</h5>
