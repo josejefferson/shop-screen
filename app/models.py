@@ -17,11 +17,11 @@ class Produto(models.Model):
         return self.nome
 
 class Anuncio(models.Model):
-    nome = models.CharField(max_length=255)
-    descricao = models.CharField(max_length=255)
+    nome = models.CharField(max_length=255, null=True, blank=True)
+    descricao = models.CharField(max_length=255, null=True, blank=True)
     imagem = models.ImageField(upload_to="static/img/anuncios")
-    tempo = models.IntegerField()
-    expira = models.DateTimeField()
+    tempo = models.IntegerField(default=5, blank=True)
+    expira = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.nome
+        return self.nome or "(Sem nome)"
