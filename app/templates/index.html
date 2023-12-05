@@ -10,9 +10,7 @@
   <ul>
     {% for produto in produtos %}
       <li>{{ produto }}</li>
-      <!-- <img src="/{{ produto.imagem }}" alt=""> -->
-      <img src="{% static produto.imagem %}" alt="">
-      
+      <img src="/{{ produto.imagem }}" alt="">
     {% endfor %}
   </ul>
 </body>
