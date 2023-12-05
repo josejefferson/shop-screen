@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+</head>
+<body>
+  <ul>
+    {% for produto in produtos %}
+      <li>{{ produto }}</li>
+      <!-- <img src="/{{ produto.imagem }}" alt=""> -->
+      <img src="{% static produto.imagem %}" alt="">
+      
+    {% endfor %}
+  </ul>
+</body>
+</html>
