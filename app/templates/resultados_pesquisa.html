@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Resultados da pesquisa</h1>
-<h2>Você pesquisou por "{{ pesquisa }}"</h2>
+<div class="container d-flex flex-column align-items-center py-5">
+  <h1>Resultados da pesquisa ({{ filterNome|length }})</h1>
+  <h2 class="mt-4">Você pesquisou por <span class="text-primary">"{{ pesquisa }}"</span></h2>
+</div>
 
+<div class="container">
+  <div class="row">
+  {% for p in filterNome %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <!-- <img class="card-img-top" src="/{{ p.imagem }}" alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title">{{ p.nome }}</h5>
+          <p class="card-text">{{ p.preco }}</p>
+          <p class="card-text">{{ p.estoque }}</p>
+          <a href="/produto/{{ p.id }}" class="btn btn-primary">Comprar produto</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+  
 {% endblock %}
