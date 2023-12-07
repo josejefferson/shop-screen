@@ -1,14 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
-	<h1 class="display-2">Pesquisar produtos</h1>
-	<h3 class="mt-4 text-italic">Digite o nome do produto</h3>
+<div class="progress rounded-0" role="progressbar">
+  <div class="progress-bar" style="width: 25%"></div>
+</div>
 
-	<form action="/pesquisar" method="GET" class="w-100 text-center">
-	  <input type="text" name="q" class="mt-4 form-control form-control-lg w-100 text-center" placeholder="Digite aqui..." onblur="this.focus()" autofocus>
+<div class="container text-center my-4">
+	<h1 class="display-2">Pesquisar produto</h1>
+
+	<form action="/pesquisar" method="GET" class="w-100">
+	  <input type="text" name="q" class="mt-4 form-control form-control-lg text-center w-100" placeholder="Digite o nome do produto..." onblur="this.focus()" autofocus>
 	  <button type="submit" class="btn btn-success btn-lg mt-3">Pesquisar</button>
 	</form>
+
+	<h3 class="my-4 text-italic">Mais buscados</h3>
+	<div class="row">
+		<div class="col">
+			<div class="card text-bg-dark">
+			  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg" class="card-img">
+			</div>
+		</div>
+		
+		<div class="col">
+			<div class="card text-bg-dark">
+			  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg" class="card-img">
+			</div>
+		</div>
+		
+		<div class="col">
+			<div class="card text-bg-dark">
+			  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg" class="card-img">
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="card text-bg-dark">
+			  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg" class="card-img">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="toolbar position-fixed left-0 bottom-0 w-100 border-top border-primary row">
+	<a href="/" class="col btn btn-lg rounded-0 btn-secondary">Voltar</a>
+	<a href="/" class="col btn btn-lg rounded-0 btn-warning">Início</a>
+	<button class="col btn btn-lg rounded-0 btn-warning">Calculadora</button>
 </div>
 
 {% endblock %}

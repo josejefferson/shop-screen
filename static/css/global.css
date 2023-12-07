@@ -1,27 +1,16 @@
+/* Estilos personalizados */
+.w-screen {
+  width: 100vw !important;
+}
+
+.h-screen {
+  height: 100vh !important;
+}
+
+/* Estilos da tela de anúncios */
 #anuncios {
   height: 100%;
   overflow: hidden;
-}
-
-@media screen and (max-width: 48em) {
-  #anuncios {
-    border-radius: 0;
-  }
-
-  #anuncios .carousel-indicators {
-    margin-bottom: 0;
-  }
-
-  #anuncios .carousel-caption {
-    bottom: 0.25rem;
-    right: 10%;
-    left: 10%;
-  }
-
-  #anuncios .carousel-control-next-icon,
-  #anuncios .carousel-control-prev-icon {
-    width: 1.25rem;
-  }
 }
 
 #anuncios .carousel-inner {
