@@ -1,27 +1,67 @@
 {% extends 'layouts/screen.html' %}
 {% block main %}
 
-<div class="container d-flex flex-column align-items-center py-5">
-  <h1>Resultados da pesquisa ({{ filterNome|length }})</h1>
-  <h2 class="mt-4">Você pesquisou por <span class="text-primary">"{{ pesquisa }}"</span></h2>
+<div class="container text-center my-4">
+  <h1 class="display-2">Resultados da pesquisa</h1>
+
+  <form action="/pesquisar" method="GET" class="w-100">
+    <input
+      type="text"
+      name="q"
+      class="mt-4 form-control form-control-lg text-center w-100"
+      placeholder="Digite o nome do produto..."
+      onblur="this.focus()"
+      autofocus
+      value="{{ pesquisa }}"
+    >
+    <button type="submit" class="btn btn-success btn-lg mt-3">Pesquisar</button>
+  </form>
+
+  <h3 class="my-4 text-italic">Encontramos {{ filterNome|length }} resultados</h3>
 </div>
 
+
+
+<!-- <div class="container d-flex flex-column align-items-center py-5">
+  <h1>Resultados da pesquisa ({{ filterNome|length }})</h1>
+  <h2 class="mt-4">Você pesquisou por <span class="text-primary">"{{ pesquisa }}"</span></h2>
+</div> -->
+
 <div class="container">
-  <div class="row">
+  <div class="row g-3">
   {% for p in filterNome %}
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/{{ p.imagem }}" style="aspect-ratio: 4/3; object-fit: contain;">
-        <div class="card-body">
-          <h4 class="card-title">{{ p.nome }}</h4>
-          <h5 class="card-text">R$ {{ p.preco }}</h5>
-          <p class="card-text">{{ p.estoque }}</p>
-          <a href="/produto/{{ p.id }}" class="btn btn-primary">Comprar produto</a>
+    <div class="col-3">
+      <a href="/produto/{{ p.id }}" class="text-decoration-none">
+        <div class="card h-100">
+          <div class="position-relative">
+            <img
+              class="card-img-top"
+              src="/{{ p.imagem }}"
+              style="aspect-ratio: 16/9; object-fit: contain;"
+            >
+            <div class="position-absolute top-0 end-0 badge bg-danger fs-5">
+              R$ {{ p.preco }} (unid.)
+            </div>
+            <div class="position-absolute bottom-0 start-0">
+              <button class="btn btn-sm btn-warning">Calcular</button>
+              <button class="btn btn-sm btn-primary">Comparar</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h4
+              class="card-title overflow-hidden"
+              style="display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;"
+            >
+              {{ p.nome }}
+            </h4>
+            <!-- <p class="card-text">{{ p.estoque }}</p> -->
+          </div>
         </div>
-      </div>
+      </a>
     </div>
     {% endfor %}
   </div>
 </div>
-  
+
 {% endblock %}
