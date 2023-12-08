@@ -1,9 +1,5 @@
-{% extends 'base.html' %}
-{% block content %}
-
-<div class="progress rounded-0" role="progressbar">
-  <div class="progress-bar" style="width: 25%"></div>
-</div>
+{% extends 'layouts/screen.html' %}
+{% block main %}
 
 <div class="container text-center my-4">
 	<h1 class="display-2">Pesquisar produto</h1>
@@ -39,12 +35,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="toolbar position-fixed left-0 bottom-0 w-100 border-top border-primary row">
-	<a href="/" class="col btn btn-lg rounded-0 btn-secondary">Voltar</a>
-	<a href="/" class="col btn btn-lg rounded-0 btn-warning">Início</a>
-	<button class="col btn btn-lg rounded-0 btn-warning">Calculadora</button>
 </div>
 
 {% endblock %}

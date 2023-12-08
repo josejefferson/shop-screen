@@ -1,0 +1,9 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="position-fixed left-0 bottom-0 w-100 h-100">
+	{% include 'components/action-bar.html' %}
+	{% include 'components/progress-bar.html' %}
+	{% block main %}{% endblock %}
+</div>
+{% endblock %}
