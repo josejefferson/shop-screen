@@ -19,7 +19,7 @@
   z-index: 99999;
   pointer-events: none;
   opacity: 0;
-  transition: 1s ease;
+  transition: .5s ease;
 }
 
 .inactivity-progress.in-progress .inactivity-progress-backdrop {

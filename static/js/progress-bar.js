@@ -9,7 +9,7 @@ function resetProgress() {
 	clearTimeout(timer)
 	$progressBar.classList.remove('in-progress')
 	setTimeout(() => $progressBar.classList.add('in-progress'), 500)
-	timer = setTimeout(returnHome, 30000)
+	timer = setTimeout(returnHome, 30500)
 }
 
 resetProgress()
