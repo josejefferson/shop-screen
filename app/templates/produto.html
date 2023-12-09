@@ -3,8 +3,8 @@
 
 <div class="container my-4">
 	<div class="row">
-		<div class="col-8">
-			<img src="/{{ produto.imagem }}" class="w-100">
+		<div class="col-8 text-center">
+			<img src="/{{ produto.imagem }}" style="height: 500px;">
 		</div>
 		<div class="col-4">
 			<h1 class="mb-4">{{ produto.nome }}</h1>
@@ -17,7 +17,7 @@
 	
 			  <div class="card-body">
 			    <p class="card-text mb-1">Preço</p>
-			    <h4 class="card-title fw-semibold">R$ {{ produto.preco }}</h4>
+			    <h4 class="card-title fw-semibold">R$ {{ produto.preco }} por {{ produto.unidade }}</h4>
 			  </div>
 			</div>
 
@@ -41,7 +41,7 @@
 	
 			  <div class="card-body">
 			    <p class="card-text mb-1">Estoque</p>
-			    <h4 class="card-title fw-semibold">{{ produto.estoque }} unid.</h4>
+			    <h4 class="card-title fw-semibold">{{ produto.estoque }} {{ produto.unidade }}</h4>
 			  </div>
 			</div>
 

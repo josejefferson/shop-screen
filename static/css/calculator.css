@@ -1,16 +1,20 @@
 .calculator-modal {
   width: min-content;
   left: auto !important;
-  top: 14px !important;
+  top: 50% !important;
   right: 14px !important;
-  transform: scale(0) translate(-100%, -100%);
+  transform: translate(100%, -50%);
   transform-origin: top right;
   transition: .3s ease;
   opacity: 0;
 }
 
+.calculator-modal .modal-header {
+  cursor: move;
+}
+
 .calculator-modal.show-calculator {
-  transform: scale(1) translate(0, 0);
+  transform: translate(0px, calc(0px - 50%));
   opacity: 1;
 }
 

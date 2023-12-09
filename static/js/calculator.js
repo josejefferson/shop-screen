@@ -1,13 +1,10 @@
 const $calculator = document.querySelector('.calculator-modal')
-const $screen = document.querySelector('.calculator-screen')
-const $keyboard = document.querySelector('.calculator-keyboard')
+const $calcHeader = $calculator.querySelector('.modal-header')
+const $screen = $calculator.querySelector('.calculator-screen')
+const $keyboard = $calculator.querySelector('.calculator-keyboard')
 
 for (const key of $keyboard.children) {
   key.addEventListener('click', () => calcKeyPress(key.innerText))
-}
-
-function toggleCalculator() {
-  $calculator.classList.toggle('show-calculator')
 }
 
 let num1 = '0'
@@ -162,4 +159,54 @@ function renderScreen() {
   if (Number(num2 < 0)) n2 = `(${n2})` // Coloca parênteses se o número for negativo
 
   $screen.innerText = `${n1} ${operation} ${n2}`
+}
+
+// Arrastar calculadora
+let dragging = false
+let mouseX = 0
+let mouseY = 0
+let deltaX = 0
+let deltaY = 0
+let currentDeltaX = 0
+let currentDeltaY = 0
+
+$calcHeader.addEventListener('mousedown', mouseDown)
+document.addEventListener('mouseup', mouseUp)
+document.addEventListener('mousemove', mouseMove)
+$calcHeader.addEventListener('touchstart', mouseDown)
+document.addEventListener('touchend', mouseUp)
+document.addEventListener('touchmove', mouseMove)
+
+function mouseDown(e) {
+  const x = e.touches?.[0]?.clientX ?? e.x
+  const y = e.touches?.[0]?.clientY ?? e.y
+  mouseX = x
+  mouseY = y
+  dragging = true
+  $calculator.style.transition = 'none'
+}
+
+function mouseUp(e) {
+  dragging = false
+  $calculator.style.transition = null
+  currentDeltaX = deltaX
+  currentDeltaY = deltaY
+}
+
+function mouseMove(e) {
+  if (!dragging) return
+  const x = e.touches?.[0]?.clientX ?? e.x
+  const y = e.touches?.[0]?.clientY ?? e.y
+  deltaX = currentDeltaX + x - mouseX
+  deltaY = currentDeltaY + y - mouseY
+  $calculator.style.transform = `translate(${deltaX}px, calc(${deltaY}px - 50%))`
+}
+
+// Exibe/oculta a calculadora
+function toggleCalculator() {
+  $calculator.classList.toggle('show-calculator')
+  $calculator.style.transition = null
+  $calculator.style.transform = null
+  currentDeltaX = 0
+  currentDeltaY = 0
 }

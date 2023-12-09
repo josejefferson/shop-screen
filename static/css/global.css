@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 /* Estilos personalizados */
 .w-screen {
   width: 100vw !important;

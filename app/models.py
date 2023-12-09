@@ -12,6 +12,8 @@ class Produto(models.Model):
     estoque = models.IntegerField()
     imagem = models.ImageField(upload_to="static/img/produtos")
     corredor = models.ForeignKey(Corredor, on_delete=models.CASCADE)
+    unidade = models.CharField(max_length=10, default="unid.", blank=True)
+    pesquisas = models.IntegerField(default=0, blank=True, editable=False)
 
     def __str__(self):
         return self.nome

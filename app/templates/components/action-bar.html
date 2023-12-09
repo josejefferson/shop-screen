@@ -1,7 +1,18 @@
 {% include 'components/calculator.html' %}
 
 <div class="w-100 d-flex">
-	<button href="/" class="col btn btn-lg rounded-0 btn-secondary" onclick="history.back()">Voltar</button>
-	<a href="/" class="col btn btn-lg rounded-0 btn-warning">Início</a>
-	<button class="col btn btn-lg rounded-0 btn-danger" onclick="toggleCalculator()">Calculadora</button>
+	<button href="/" class="col btn btn-lg rounded-0 btn-secondary" onclick="history.back()">
+		<i class="fa-solid fa-arrow-left"></i><br />
+		Voltar
+	</button>
+	
+	<a href="/" class="col btn btn-lg rounded-0 btn-warning">
+		<i class="fa-solid fa-house"></i><br />
+		Início
+	</a>
+	
+	<button class="col btn btn-lg rounded-0 btn-danger" onclick="toggleCalculator()">
+		<i class="fa-solid fa-calculator"></i><br />
+		Calculadora
+	</button>
 </div>

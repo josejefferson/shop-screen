@@ -9,6 +9,5 @@ window.addEventListener('pageshow', () => {
 })
 
 window.addEventListener('beforeunload', () => {
-	console.log('carregando')
 	$loadingScreen.classList.add('is-loading')
 })
