@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/static/css/calculator.css">
+
+<div class="calculator-modal modal d-block h-auto shadow position-fixed" tabindex="-1">
+  <div class="modal-dialog m-0">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Calculadora</h5>
+        <button type="button" class="btn-close" onclick="toggleCalculator()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="calculator">
+          <div class="calculator-screen border border-3 rounded fs-3 px-2 py-1 mb-1 text-end">0</div>
+          <div class="calculator-keyboard row rounded overflow-hidden m-0">
+            <button class="col-6 btn btn-danger btn-lg rounded-0">C</button>
+            <button class="col-3 btn btn-warning btn-lg rounded-0">%</button>
+            <button class="col-3 btn btn-warning btn-lg rounded-0">÷</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">7</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">8</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">9</button>
+            <button class="col-3 btn btn-warning btn-lg rounded-0">×</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">4</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">5</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">6</button>
+            <button class="col-3 btn btn-warning btn-lg rounded-0">-</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">1</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">2</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">3</button>
+            <button class="col-3 btn btn-warning btn-lg rounded-0">+</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">+/-</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">0</button>
+            <button class="col-3 btn btn-primary btn-lg rounded-0">,</button>
+            <button class="col-3 btn btn-success btn-lg rounded-0">=</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/calculator.js"></script>

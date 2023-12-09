@@ -1,0 +1,25 @@
+.calculator-modal {
+  width: min-content;
+  left: auto !important;
+  top: 14px !important;
+  right: 14px !important;
+  transform: scale(0) translate(-100%, -100%);
+  transform-origin: top right;
+  transition: .3s ease;
+  opacity: 0;
+}
+
+.calculator-modal.show-calculator {
+  transform: scale(1) translate(0, 0);
+  opacity: 1;
+}
+
+
+.calculator-screen {
+  width: calc(50px * 4);
+}
+
+.calculator-keyboard {
+  width: calc(50px * 4);
+  height: calc(50px * 5);
+}

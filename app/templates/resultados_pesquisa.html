@@ -6,7 +6,7 @@
 
   <form action="/pesquisar" method="GET" class="w-100">
     <input
-      type="text"
+      type="search"
       name="q"
       class="mt-4 form-control form-control-lg text-center w-100"
       placeholder="Digite o nome do produto..."
@@ -20,13 +20,6 @@
   <h3 class="my-4 text-italic">Encontramos {{ filterNome|length }} resultados</h3>
 </div>
 
-
-
-<!-- <div class="container d-flex flex-column align-items-center py-5">
-  <h1>Resultados da pesquisa ({{ filterNome|length }})</h1>
-  <h2 class="mt-4">Você pesquisou por <span class="text-primary">"{{ pesquisa }}"</span></h2>
-</div> -->
-
 <div class="container">
   <div class="row g-3">
   {% for p in filterNome %}
@@ -39,14 +32,28 @@
               src="/{{ p.imagem }}"
               style="aspect-ratio: 16/9; object-fit: contain;"
             >
+            
             <div class="position-absolute top-0 end-0 badge bg-danger fs-5">
               R$ {{ p.preco }} (unid.)
             </div>
+            
             <div class="position-absolute bottom-0 start-0 p-1">
-              <button class="btn btn-sm btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Adicionar à calculadora">
+              <button
+                class="btn btn-sm btn-warning"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Adicionar à calculadora"
+                onclick="return insertNum('{{ p.preco }}')"
+              >
                 <i class="fa-solid fa-calculator"></i>
               </button>
-              <button class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Comparar preços">
+            
+              <button
+                class="btn btn-sm btn-primary"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Comparar preços"
+              >
                 <i class="fa-solid fa-code-compare"></i>
               </button>
             </div>

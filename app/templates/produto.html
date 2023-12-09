@@ -1,7 +1,6 @@
 {% extends 'layouts/screen.html' %}
 {% block main %}
 
-
 <div class="container my-4">
 	<div class="row">
 		<div class="col-8">
@@ -46,7 +45,7 @@
 			  </div>
 			</div>
 
-			<button class="btn btn-warning btn-lg d-block mt-2 w-100">
+			<button class="btn btn-warning btn-lg d-block mt-2 w-100" onclick="return insertNum('{{ produto.preco }}')">
 				<i class="fa-solid fa-calculator"></i> Adic. à calculadora
 			</button>
 
