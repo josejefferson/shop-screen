@@ -3,16 +3,9 @@ from .models import Produto, Anuncio
 from .utils import produtos_similares
 import random
 
-def pagina_inicial(request):
-    """
-    Pagina inicial
-
-    """
-    return render(request, 'index.html')
-
-def anuncios(request):
+def index(request):
     anuncios = Anuncio.objects.all()
-    return render(request, 'anuncios.html', {'anuncios': anuncios})
+    return render(request, 'index.html', {'anuncios': anuncios})
 
 def pesquisa(request):
     todos_produtos = Produto.objects.all().order_by('-pesquisas')
@@ -26,7 +19,7 @@ def pesquisa(request):
 
 def resultados_pesquisa(request):
     pesquisa = request.GET.get('q', '')
-    produtos = Produto.objects.filter(nome__icontains=pesquisa)
+    produtos = Produto.objects.filter(nome__icontains=pesquisa.strip())
 
     return render(request, 'resultados_pesquisa.html', {'pesquisa':pesquisa, 'produtos':produtos})
 

@@ -1,8 +1,101 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
 
-<div hx-get="/anuncios" hx-trigger="load" preload-images="true"></div>
+<a href="/pesquisa" class="text-decoration-none">
+	<div class="d-flex flex-column">
+		<div
+			id="anuncios"
+			class="carousel slide w-screen h-screen overflow-hidden bg-black"
+			data-bs-ride="carousel"
+			style="max-height: calc(100vh - 100px);"
+		>
+		  <div class="carousel-indicators">
+		    {% for anuncio in anuncios %}
+		      <button
+		        type="button"
+		        data-bs-target="#anuncios"
+		        data-bs-slide-to="{{ forloop.counter0 }}"
+		        {% if forloop.counter0 == 0 %}
+		          class="active"
+		        {% endif %}
+		      ></button>
+		    {% endfor %}
+		  </div>
+		  <div class="carousel-inner">
+		    {% for anuncio in anuncios %}
+		    <div
+			    class="carousel-item {% if not highlight.title and not highlight.description %}carousel-item-no-description{% endif %} h-100 {% if forloop.counter0 == 0 %}active{% endif %}"
+			    data-bs-interval="{% widthratio anuncio.tempo 1 1000 %}"
+			  >
+		        <img
+		          class="background-img"
+		          src="/{{ anuncio.imagem }}"
+		        />
+		        <img src="/{{ anuncio.imagem }}" class="d-block w-100 h-100 object-fit-contain">
+		      <div class="carousel-caption d-none d-md-block">
+		        <h5>{{ anuncio.nome|default_if_none:'' }}</h5>
+		        <p>{{ anuncio.descricao|default_if_none:'' }}</p>
+		      </div>
+		    </div>
+		    {% endfor %}
+		  </div>
+		  <button class="carousel-control-prev" type="button" data-bs-target="#anuncios" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		    <span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="#anuncios" data-bs-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		    <span class="visually-hidden">Next</span>
+		  </button>
+		</div>
 
+		<div class="home-footer d-flex text-light" style="--height: 100px;">
+			<div class="bg-info" style="width: 20%">
+				<img src="https://png.pngtree.com/png-vector/20230214/ourmid/pngtree-supermarket-logo-vegetable-and-water-png-image_6598571.png" style="height: 75px;">
+			</div>
+			
+			<div class="home-footer-division"
+				style="
+					--left: rgba(var(--bs-info-rgb));
+					--right: rgba(var(--bs-primary-rgb));
+					--size: 20px;
+				"
+			></div>
+			
+			<div class="bg-primary text-center" style="width: 60%">
+				<h1>Não sabe o preço de um produto?</h1>
+				<div>CLIQUE AQUI!</div>
+			</div>
+			
+			<div class="home-footer-division"
+				style="
+					--left: rgba(var(--bs-primary-rgb));
+					--right: rgba(var(--bs-danger-rgb));
+					--size: 20px;
+				"
+			></div>
+
+			<div class="bg-danger" style="width: 20%">
+				<lottie-player
+					class="touch-animation position-absolute"
+					src="/static/json/click-animation.json"
+					background="transparent"
+					speed="1"
+					style=""
+					loop
+					autoplay
+				></lottie-player>
+			</div>
+		</div>
+	</div>
+</a>
+
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+
+{% block scripts %}
 <script src="/static/js/home.js"></script>
-
 {% endblock %}
