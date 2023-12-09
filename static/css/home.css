@@ -28,3 +28,71 @@ body {
 	bottom: -30px;
 	z-index: 2;
 }
+
+/* Estilos da tela de anúncios */
+#anuncios {
+  height: 100%;
+  overflow: hidden;
+}
+
+#anuncios .carousel-inner {
+  height: 100%;
+  z-index: 1;
+}
+
+#anuncios .carousel-item {
+  background-size: cover;
+  height: 100%;
+}
+
+#anuncios .carousel-item:not(.carousel-item-no-description) .carousel-caption {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+
+#anuncios .carousel-item:not(.carousel-item-no-description) a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+
+#anuncios .carousel-item:not(.carousel-item-no-description).active a::before {
+  opacity: 1;
+}
+
+#anuncios .carousel-item:not(.carousel-item-no-description).active .carousel-caption {
+  opacity: 1;
+}
+
+#anuncios:hover .carousel-item .carousel-caption,
+#anuncios:hover .carousel-item a::before {
+  opacity: 0 !important;
+  transition-delay: 0 !important;
+}
+
+#anuncios .carousel-item img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+  z-index: 1;
+}
+
+#anuncios .carousel-item img.background-img {
+  filter: blur(10px);
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  z-index: -1 !important;
+}
+
+.img-full-space {
+  object-fit: cover !important;
+}

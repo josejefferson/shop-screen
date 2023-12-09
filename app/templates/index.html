@@ -24,18 +24,20 @@
 		  <div class="carousel-inner">
 		    {% for anuncio in anuncios %}
 		    <div
-			    class="carousel-item {% if not highlight.title and not highlight.description %}carousel-item-no-description{% endif %} h-100 {% if forloop.counter0 == 0 %}active{% endif %}"
+			    class="carousel-item {% if not anuncio.nome and not anuncio.descricao %}carousel-item-no-description{% endif %} h-100 {% if forloop.counter0 == 0 %}active{% endif %}"
 			    data-bs-interval="{% widthratio anuncio.tempo 1 1000 %}"
 			  >
+			  	<a>
 		        <img
 		          class="background-img"
 		          src="/{{ anuncio.imagem }}"
 		        />
 		        <img src="/{{ anuncio.imagem }}" class="d-block w-100 h-100 object-fit-contain">
 		      <div class="carousel-caption d-none d-md-block">
-		        <h5>{{ anuncio.nome|default_if_none:'' }}</h5>
+		        <h2 class="fw-bold">{{ anuncio.nome|default_if_none:'' }}</h2>
 		        <p>{{ anuncio.descricao|default_if_none:'' }}</p>
 		      </div>
+		      </a>
 		    </div>
 		    {% endfor %}
 		  </div>
