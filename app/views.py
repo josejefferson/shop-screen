@@ -22,5 +22,5 @@ def resultados_pesquisa(request):
     return render(request, 'resultados_pesquisa.html', {'pesquisa':pesquisa, 'filterNome':filterNome})
 
 def produto(request, id):
-    p = Produto.objects.get(id=id)
-    return render(request, 'produto.html', {'id':p})
+    produto = Produto.objects.get(id=id)
+    return render(request, 'produto.html', {'produto': produto})
