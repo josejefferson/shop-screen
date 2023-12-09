@@ -16,6 +16,7 @@ resetProgress()
 
 document.addEventListener('mousedown', resetProgress)
 document.addEventListener('mouseup', resetProgress)
+document.addEventListener('mousemove', resetProgress)
 document.addEventListener('touchstart', resetProgress)
 document.addEventListener('touchmove', resetProgress)
 document.addEventListener('touchend', resetProgress)

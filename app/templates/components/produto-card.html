@@ -1,0 +1,48 @@
+<div class="col-3">
+  <a href="/produto/{{ produto.id }}" class="text-decoration-none">
+    <div class="card h-100">
+      <div class="position-relative">
+        <img
+          class="card-img-top"
+          src="/{{ produto.imagem }}"
+          style="aspect-ratio: 16/9; object-fit: contain;"
+        >
+        
+        <div class="position-absolute top-0 end-0 badge bg-danger fs-5">
+          R$ {{ produto.preco }} ({{ produto.unidade }})
+        </div>
+        
+        <div class="position-absolute bottom-0 start-0 p-1">
+          <button
+            class="btn btn-sm btn-warning"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Adicionar à calculadora"
+            onclick="return insertNum('{{ produto.preco }}')"
+          >
+            <i class="fa-solid fa-calculator"></i>
+          </button>
+        
+          <button
+            class="btn btn-sm btn-primary"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Comparar preços"
+          >
+            <i class="fa-solid fa-code-compare"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h4
+          class="card-title overflow-hidden"
+          style="display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;"
+        >
+          {{ produto.nome }}
+        </h4>
+        <!-- <p class="card-text">{{ produto.estoque }}</p> -->
+      </div>
+    </div>
+  </a>
+</div>

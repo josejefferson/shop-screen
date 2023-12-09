@@ -4,30 +4,35 @@
 <div class="container text-center my-4">
 	<h1 class="display-2">Pesquisar produto</h1>
 
-	<form action="/pesquisar" method="GET" class="w-100">
+	<form action="/pesquisar" method="GET" class="w-100 mx-auto" style="max-width: 700px;">
 	  <input
 		  type="search"
 		  name="q"
-		  class="mt-4 form-control form-control-lg text-center w-100"
+		  class="mt-4 mx-auto form-control form-control-lg text-center w-100"
 		  placeholder="Digite o nome do produto..."
 		  autofocus
 		  autocomplete="off"
 		>
-	  <button type="submit" class="btn btn-success btn-lg mt-3">Pesquisar</button>
+		<div class="mx-auto mt-3">
+			<div class="simple-keyboard"></div>
+		</div>
+	  <button type="submit" class="btn btn-success btn-lg mt-3">
+		  <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+		</button>
 	</form>
 
-	<h3 class="my-4 text-italic">Mais buscados</h3>
-	<div class="row g-2">
-		{% for produto in mais_buscados %}
-		<div class="col">
-			<a href="/produto/{{ produto.id }}">
-				<div class="card">
-				  <img src="/{{ produto.imagem }}" class="card-img" style="aspect-ratio: 1/1; object-fit: contain;">
-				</div>
-			</a>
-		</div>
-		{% endfor %}
-	</div>
+	{% include 'components/mais-buscados.html' with mais_buscados=mais_buscados %}
+
+	<h3 class="alert alert-light alert-heading fw-bold fs-2 mt-5 mb-4 text-center">SUGESTÕES</h3>
+	<div class="row g-3">
+    {% for produto in sugestoes %}
+      {% include 'components/produto-card.html' with produto=produto %}
+    {% endfor %}
+  </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/keyboard.js"></script>
 {% endblock %}
