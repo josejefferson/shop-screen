@@ -50,7 +50,7 @@ body {
   transition: opacity 0.3s ease 0.2s;
 }
 
-#anuncios .carousel-item:not(.carousel-item-no-description) a::before {
+#anuncios .carousel-item:not(.carousel-item-no-description) .anuncio-img::before {
   content: '';
   position: absolute;
   left: 0;
@@ -62,7 +62,7 @@ body {
   transition: opacity 0.3s ease 0.2s;
 }
 
-#anuncios .carousel-item:not(.carousel-item-no-description).active a::before {
+#anuncios .carousel-item:not(.carousel-item-no-description).active .anuncio-img::before {
   opacity: 1;
 }
 
@@ -71,20 +71,21 @@ body {
 }
 
 #anuncios:hover .carousel-item .carousel-caption,
-#anuncios:hover .carousel-item a::before {
+#anuncios:hover .carousel-item .anuncio-img::before {
   opacity: 0 !important;
   transition-delay: 0 !important;
 }
 
-#anuncios .carousel-item img {
+#anuncios .carousel-item .anuncio-img img {
   display: block;
   height: 100%;
   object-fit: contain;
+  position: absolute;
   width: 100%;
   z-index: 1;
 }
 
-#anuncios .carousel-item img.background-img {
+#anuncios .carousel-item .anuncio-img img.background-img {
   filter: blur(10px);
   left: 0;
   object-fit: cover;
