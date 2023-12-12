@@ -33,7 +33,7 @@
 		          src="/{{ anuncio.imagem }}"
 		        />
 		        <img src="/{{ anuncio.imagem }}" class="d-block w-100 h-100 object-fit-contain">
-						<div class="carousel-caption d-none d-md-block">
+						<div class="carousel-caption d-none d-md-block z-1">
 							<h2 class="fw-bold">{{ anuncio.nome|default_if_none:'' }}</h2>
 							<p>{{ anuncio.descricao|default_if_none:'' }}</p>
 						</div>
