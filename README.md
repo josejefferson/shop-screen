@@ -1,3 +1,6 @@
+# ShopScreen
+Uma tela interativa para supermercados
+
 ## Instalar
 
 ```bash
