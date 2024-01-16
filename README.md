@@ -12,6 +12,7 @@ Uma tela interativa para supermercados
 - Tela adaptada à touch screen
 - Calculadora
 - Retorno automático à tela inicial por inatividade
+- Transição entre páginas
 
 ## Tecnologias utilizadas
 
@@ -37,3 +38,14 @@ python manage.py runserver
 ```
 
 ## Screenshots
+### Tela inicial, onde passam anúncios do supermercado
+![Tela inicial](https://github.com/josejefferson/shop-screen/assets/52979246/281b8e2b-792c-443d-b347-07731c44d1d3)
+
+### Tela de pesquisa de produto, possui teclado virtual, sessão de mais buscados e sugestões
+![Tela de pesquisa de produto](https://github.com/josejefferson/shop-screen/assets/52979246/3115c443-308e-4d6b-8761-ef9359c6ecbc)
+
+### Página do produto, mostrando imagem, preço, corredor, e uma calculadora
+![Página do produto](https://github.com/josejefferson/shop-screen/assets/52979246/07b2c09f-b0f6-49fb-b72f-3332a584ec96)
+
+### Tela de administração do Django
+![Tela de administração do Django](https://github.com/josejefferson/shop-screen/assets/52979246/efc76d1f-8136-42ab-82b6-079d13b2b42e)
