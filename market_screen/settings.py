@@ -127,4 +127,4 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://localhost:8000', 'https://market-screen.fly.dev']
+CSRF_TRUSTED_ORIGINS = ['https://localhost:8000', 'https://shop-screen.onrender.com/']
